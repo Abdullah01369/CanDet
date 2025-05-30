@@ -1,7 +1,8 @@
 # app.py
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 from ultralytics import YOLO
+ 
 import cv2
 import numpy as np
 import io
@@ -65,8 +66,7 @@ def remove_hairs(image_np):
 @app.route('/')
 def index():
     """Returns a status message for the API's root endpoint."""
-    return "Melanoma Detection API is running! Send a POST request to /predict with an image file."
-
+       return render_template('index.html')
 @app.route('/predict', methods=['POST'])
 def predict():
     """Processes incoming images and performs melanoma detection."""
