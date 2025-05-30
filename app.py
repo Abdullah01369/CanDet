@@ -62,11 +62,10 @@ def remove_hairs(image_np):
     cleaned_image = cv2.inpaint(image_np, dilated_mask, 3, cv2.INPAINT_TELEA) # 3: inpaint radius
 
     return cleaned_image
-
 @app.route('/')
 def index():
-    """Returns a status message for the API's root endpoint."""
-       return render_template('index.html')
+        return render_template('index.html') 
+
 @app.route('/predict', methods=['POST'])
 def predict():
     """Processes incoming images and performs melanoma detection."""
